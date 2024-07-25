@@ -21,6 +21,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
 
+    
     @ExceptionHandler(DuplicateException.class)
     public ResponseEntity<ExceptionResponse> handleDuplicateException(final DuplicateException e) {
         log.warn(e.getMessage(), e);
