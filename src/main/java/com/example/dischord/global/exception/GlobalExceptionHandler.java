@@ -17,17 +17,17 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
         log.warn(e.getMessage(), e);
 
-        return ApiResponse.createError(e.getCode(), e.getMessage());
+        return ApiResponse.error(e.getCode(), e.getMessage());
     }
 
 
     
     @ExceptionHandler(DuplicateException.class)
-    public ResponseEntity<ExceptionResponse> handleDuplicateException(final DuplicateException e) {
+    public ApiResponse<ExceptionResponse> handleDuplicateException(final DuplicateException e) {
+
         log.warn(e.getMessage(), e);
 
-        return ResponseEntity.badRequest()
-                .body(new ExceptionResponse(e.getCode(), e.getMessage()));
+        return ApiResponse.error(e.getCode(), e.getMessage());
     }
 
 

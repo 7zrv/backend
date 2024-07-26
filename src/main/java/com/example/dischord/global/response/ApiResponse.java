@@ -27,11 +27,11 @@ public class ApiResponse<T> {
         return new ApiResponse<>(200, null, data);
     }
 
-    public static ApiResponse<?> okWithNoContent() {
+    public static ApiResponse<?> ok() {
         return new ApiResponse<>(200, null, null);
     }
 
-    public static ApiResponse<ExceptionResponse> createError(int errorCode, String message) {
+    public static ApiResponse<ExceptionResponse> error(int errorCode, String message) {
         return new ApiResponse<>(errorCode, message, null);
     }
 

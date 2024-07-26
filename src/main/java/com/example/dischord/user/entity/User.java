@@ -1,20 +1,17 @@
 package com.example.dischord.user.entity;
 
-import com.example.dischord.global.infraStructure.BaseEntity;
+import com.example.dischord.common.BaseEntity;
 import com.example.dischord.user.type.UserStateType;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
-import java.time.LocalDateTime;
+import org.hibernate.annotations.SQLDelete;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
+@SQLDelete(sql = "UPDATE users SET deleted_at = CURRENT_TIMESTAMP WHERE user_id=?")
 @Entity
 @Table(name = "users")
 public class User extends BaseEntity {

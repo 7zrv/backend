@@ -6,8 +6,6 @@ import com.example.dischord.user.requestDto.UserSignupRequestDto;
 import com.example.dischord.user.responseDto.UserResponseDto;
 import com.example.dischord.user.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
@@ -30,6 +28,14 @@ public class UserApiController {
         UserResponseDto responseDto = userService.getUser(userId);
 
         return ApiResponse.ok(responseDto);
+    }
+
+    @DeleteMapping("/api/user/{userId}")
+    public ApiResponse<?> signOutUser(@PathVariable Long userId) {
+
+        userService.deleteUser(userId);
+
+        return ApiResponse.ok();
     }
 
 
