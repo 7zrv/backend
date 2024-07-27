@@ -1,9 +1,8 @@
 package com.example.dischord.image.entity;
 
 
-import com.example.dischord.global.infraStructure.BaseEntity;
+import com.example.dischord.common.BaseEntity;
 import com.example.dischord.user.entity.User;
-import com.example.dischord.user.type.UserStateType;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;

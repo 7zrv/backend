@@ -23,4 +23,6 @@ public class ProfileImageApiController {
 
         return ApiResponse.ok(responseDto);
     }
+
+
 }
