@@ -17,6 +17,6 @@ public class UserResponseDto {
     private final LocalDateTime signupAt;
 
     public static UserResponseDto from(User user) {
-        return new UserResponseDto(user.getId(), user.getEmail(), user.getNickname(), user.getSignupAt());
+        return new UserResponseDto(user.getId(), user.getEmail(), user.getNickname(), user.getCreatedAt());
     }
 }
