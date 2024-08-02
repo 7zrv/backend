@@ -6,5 +6,5 @@ public enum UserStateType {
     ONLINE,
     OFFLINE,
     AWAY,
-    DO_NOT_DISTURB;
+    DO_NOT_DISTURB
 }
