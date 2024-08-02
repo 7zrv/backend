@@ -15,7 +15,7 @@ import java.util.Date;
 @Component
 public class JWTUtil {
 
-    private SecretKey secretKey;
+    private final SecretKey secretKey;
 
     @Value("${spring.jwt.access.expiration}")
     private Long accessTokenValidTime;
@@ -30,11 +30,12 @@ public class JWTUtil {
 
 
 
-    public String createAccessToken(String username) {
+    public String createAccessToken(String username, String role) {
         Date now = new Date();
 
         return Jwts.builder()
                 .claim("email", username)
+                .claim("role", role)
                 .issuedAt(now)
                 .expiration(new Date(now.getTime() + accessTokenValidTime))
                 .signWith(secretKey)
@@ -56,6 +57,11 @@ public class JWTUtil {
     public String getUsername(String token) {
 
         return Jwts.parser().verifyWith(secretKey).build().parseSignedClaims(token).getPayload().get("email", String.class);
+    }
+
+    public String getRole(String token) {
+
+        return Jwts.parser().verifyWith(secretKey).build().parseSignedClaims(token).getPayload().get("role", String.class);
     }
 
     public Boolean isExpired(String token) {

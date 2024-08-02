@@ -49,6 +49,7 @@ public class User extends BaseEntity {
         this.email = email;
         this.password = password;
         this.nickname = nickname;
+        this.phoneNumber = phoneNumber;
         this.role = UserRoleType.USER;
         this.userState = UserStateType.OFFLINE;
     }
